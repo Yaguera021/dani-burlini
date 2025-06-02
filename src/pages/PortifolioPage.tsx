@@ -58,7 +58,7 @@ export const PortifolioPage: React.FC = () => {
         {PRELOADER_VIDEO_URL ? (
           <video autoPlay loop muted playsInline className='absolute top-0 left-0 w-full h-full object-cover' key={PRELOADER_VIDEO_URL}>
             <source src={PRELOADER_VIDEO_URL} type='video/mp4' />
-            Carregando portfólio...
+            Carregando portifólio...
           </video>
         ) : (
           <div className='text-xl'>Carregando...</div>
@@ -68,7 +68,7 @@ export const PortifolioPage: React.FC = () => {
       <div className={`pt-24 pb-16 transition-opacity duration-700 ease-in-out ${isPageLoading ? 'opacity-0' : 'opacity-100'}`}>
         <div className='container mx-auto px-4 text-center'>
           <h1 className='text-4xl sm:text-5xl font-bold mb-12 sm:mb-16 uppercase tracking-wider' style={{ color: COR_DESTAQUE }}>
-            Portfólio
+            Portifólio
           </h1>
           <div className='grid grid-cols-1 gap-y-8 max-w-xs xxs:max-w-xxs xs:max-w-xs sm:max-w-sm mx-auto md:grid-cols-3 md:gap-x-6 md:gap-y-10 md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'>
             {youtubeVideos.map((video) => (
