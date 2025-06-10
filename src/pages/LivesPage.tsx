@@ -65,11 +65,10 @@ export const LivesPage: React.FC = () => (
           <span className='ml-3 w-3 h-3 sm:w-4 sm:h-4 rounded-full animate-pulse' style={{ backgroundColor: COR_LIVE_PULSANTE, boxShadow: `0 0 12px ${COR_LIVE_PULSANTE}` }} aria-hidden='true'></span>
         </h1>
         <p className='text-lg sm:text-xl mb-12 sm:mb-16' style={{ color: '#BBB' }}>
-          {' '}
           Confira as gravações e as próximas transmissões.
         </p>
       </div>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
+      <div className='pt-12 pb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
         {livesData.map((live) => (
           <div
             key={live.id}

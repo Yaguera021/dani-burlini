@@ -15,10 +15,10 @@ export const PackPage: React.FC = () => {
         color: COR_TEXTO_PRINCIPAL,
         fontFamily: FONTE_PRINCIPAL,
       }}
-      className='pt-28 pb-16 min-h-screen'
+      className='pt-28 pb-12 min-h-screen'
     >
       <div className='container mx-auto px-4 text-center'>
-        <h1 className='text-4xl sm:text-5xl font-bold mb-4 uppercase tracking-wider' style={{ color: COR_DESTAQUE }}>
+        <h1 className='text-4xl sm:text-5xl font-bold pb-12 uppercase tracking-wider' style={{ color: COR_DESTAQUE }}>
           Ultimate Pack
         </h1>
         <p className='text-lg sm:text-xl mb-12' style={{ color: '#BBB' }}>
