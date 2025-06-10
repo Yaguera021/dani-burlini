@@ -13,7 +13,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => (
         <source src='https://res.cloudinary.com/dekqhffqi/video/upload/v1745962086/pj94jfjuyb77c0iw76l8.mp4' type='video/mp4' />
         Seu navegador não suporta o elemento de vídeo.
       </video>
-      <div className='relative pb-12 sm:pb-16 md:pb-20 z-10 grid grid-cols-2 gap-x-3 gap-y-4 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-5 lg:grid-cols-4 lg:gap-x-5'>
+      <div className='relative pb-8 sm:pb-16 md:pb-20 z-10 grid grid-cols-2 gap-x-12 gap-y-4 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-5 lg:grid-cols-4 lg:gap-x-5'>
         {['Portifólio', 'Ultimate Pack', 'Lives', 'Mentorias'].map((label) => (
           <button
             key={label}

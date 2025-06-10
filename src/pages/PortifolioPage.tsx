@@ -4,6 +4,7 @@ import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL
 const PRELOADER_VIDEO_URL = 'https://res.cloudinary.com/dekqhffqi/video/upload/v1745962086/pj94jfjuyb77c0iw76l8.mp4';
 
 const youtubeVideos = [
+  { id: 'LvPLcz91AbI', title: 'brendiRelProd' },
   { id: 'ErRE-ejVeG8', title: 'PV' },
   { id: 'tzElyk6KFWw', title: 'LeoArruda' },
   { id: 'wkweXbYOal0', title: 'pvGeraldo' },
@@ -15,7 +16,6 @@ const youtubeVideos = [
   { id: 'dFEW8kp6Ojs', title: 'Appolinario' },
   { id: 'JtRzx0y0IVQ', title: 'brendiSistema' },
   { id: 'W-BUfd2dHHw', title: 'brendi' },
-  { id: '4P2h9GGcMIU', title: 'OqueAprendiComBjj' },
 ];
 
 let portfolioHasHadInitialLongLoad = false;
@@ -41,6 +41,17 @@ export const PortifolioPage: React.FC = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (isPageLoading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isPageLoading]);
 
   return (
     <div

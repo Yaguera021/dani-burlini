@@ -22,7 +22,7 @@ export const PackPage: React.FC = () => {
           Ultimate Pack
         </h1>
         <p className='text-lg sm:text-xl mb-12' style={{ color: '#BBB' }}>
-          Transforme seus vídeos com este pack exclusivo!
+          Tenha acesso aos mesmos recursos que me tornaram um editor requisitado no mercado.
         </p>
 
         <div className='mb-12 rounded-lg overflow-hidden aspect-video max-w-3xl lg:max-w-4xl mx-auto bg-black'>
@@ -38,22 +38,15 @@ export const PackPage: React.FC = () => {
           ></iframe>
         </div>
 
-        <div className='max-w-2xl mx-auto mb-12 text-left space-y-4'>
-          <h2 className='text-2xl sm:text-3xl font-semibold' style={{ color: COR_DESTAQUE }}>
-            O que você vai encontrar:
-          </h2>
-          <p className='text-base sm:text-lg leading-relaxed' style={{ color: COR_TEXTO_PRINCIPAL || '#cccccc' }}>
-            Uma descrição detalhada do conteúdo do pack, incluindo presets, templates, efeitos sonoros, LUTs, e tudo mais que vai ajudar o editor a economizar tempo e elevar a qualidade dos seus
-            projetos. Ideal para criadores de conteúdo, freelancers e agências que buscam um diferencial no mercado.
-          </p>
-        </div>
-
         <div className='p-8 rounded-lg shadow-xl max-w-md mx-auto' style={{ backgroundColor: COR_FUNDO_SECUNDARIO }}>
-          <h3 className='text-3xl sm:text-4xl font-bold mb-4' style={{ color: COR_DESTAQUE }}>
-            R$ 197,00
+          <h3 className='text-xl sm:text-3xl font-semibold mb-4' style={{}}>
+            De <span>R$ 99,00</span> por apenas
           </h3>
-          <p className='text-base sm:text-lg mb-6' style={{ color: '#BBB' }}>
-            Acesso vitalício e atualizações futuras!
+          <h3 className='text-4xl sm:text-4xl font-bold mb-4' style={{ color: COR_DESTAQUE }}>
+            R$ 29,70
+          </h3>
+          <p className='text-base sm:text-sm mb-6' style={{ color: '#BBB' }}>
+            Você vai economizar R$ 69,30
           </p>
           <button
             className='w-full py-3 sm:py-4 px-8 rounded-lg text-lg sm:text-xl font-semibold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-md'

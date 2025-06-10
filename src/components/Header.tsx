@@ -75,8 +75,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, nav
   return (
     <header style={{ fontFamily: FONTE_PRINCIPAL, backgroundColor: COR_FUNDO_PRINCIPAL, color: COR_TEXTO_PRINCIPAL }} className='fixed top-0 left-0 right-0 z-50 shadow-md'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20'>
-        <div className='text-2xl font-bold cursor-pointer flex-shrink-0' onClick={() => handleMobileLinkClick('Home')} style={{ color: COR_TEXTO_PRINCIPAL }}>
-          danielburlini
+        <div className='text-3xl font-bold cursor-pointer flex-shrink-0' onClick={() => handleMobileLinkClick('Home')} style={{ color: COR_TEXTO_PRINCIPAL }}>
+          <span className='font-light'>daniel</span>burlini
         </div>
 
         <nav ref={navDesktopRef} className='hidden md:flex flex-grow justify-center relative items-center space-x-3 lg:space-x-5'>

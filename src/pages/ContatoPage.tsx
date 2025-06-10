@@ -11,7 +11,7 @@ export const ContatoPage: React.FC = () => {
     <div style={{ backgroundColor: COR_FUNDO_PRINCIPAL, color: COR_TEXTO_PRINCIPAL, fontFamily: FONTE_PRINCIPAL }} className='pt-28 pb-16 min-h-screen flex items-center justify-center'>
       <div className='container mx-auto px-4 max-w-lg w-full'>
         <div className='text-center mb-12'>
-          <h1 className='text-4xl sm:text-5xl font-bold uppercase tracking-wider' style={{ color: COR_DESTAQUE }}>
+          <h1 className='text-3xl sm:text-4xl font-bold uppercase tracking-wider' style={{ color: COR_DESTAQUE }}>
             Entre em Contato
           </h1>
           <p className='text-lg sm:text-xl mt-4' style={{ color: '#BBB' }}>
@@ -29,7 +29,21 @@ export const ContatoPage: React.FC = () => {
               id='name'
               className='mt-1 block w-full px-3 py-3 rounded-md shadow-sm focus:ring-opacity-50 text-base'
               style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none' }}
-              placeholder='Seu nome'
+              placeholder='Nome completo'
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor='name' className='block text-sm font-medium text-left mb-1' style={{ color: COR_DESTAQUE }}>
+              Telefone
+            </label>
+            <input
+              type='number'
+              name='number'
+              id='number'
+              className='mt-1 block w-full px-3 py-3 rounded-md shadow-sm focus:ring-opacity-50 text-base'
+              style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none' }}
+              placeholder='Telefone'
               required
             />
           </div>
@@ -43,7 +57,7 @@ export const ContatoPage: React.FC = () => {
               id='email'
               className='mt-1 block w-full px-3 py-3 rounded-md shadow-sm text-base'
               style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none' }}
-              placeholder='seu@email.com'
+              placeholder='Email'
               required
             />
           </div>
