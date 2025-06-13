@@ -10,6 +10,7 @@ import { MentoriasPage } from './pages/MentoriasPage';
 import { ContatoPage } from './pages/ContatoPage';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { WhatsappButton } from './components/WhatsappButton';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>('Home');
@@ -49,6 +50,7 @@ export default function App() {
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} navItems={navItems} />
       <main className='flex-grow'>{renderPage()}</main>
       <Footer />
+      <WhatsappButton />
     </div>
   );
 }
