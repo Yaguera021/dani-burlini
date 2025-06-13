@@ -66,11 +66,11 @@ export const RecursosPage: React.FC = () => {
       </section>
 
       <div className='container mx-auto px-4 text-center pt-10'>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8'>
           {recursosData.map((recurso) => (
             <div
               key={recurso.id}
-              className='rounded-lg shadow-xl flex flex-col text-left overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1'
+              className='rounded-lg shadow-xl flex flex-col text-center overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1'
               style={{ backgroundColor: COR_FUNDO_CARD_RECURSO, border: `1px solid ${COR_FUNDO_SECUNDARIO}` }}
             >
               <div className='h-32 sm:h-36 flex items-center justify-center' style={{ backgroundColor: COR_DESTAQUE }}>
@@ -87,7 +87,7 @@ export const RecursosPage: React.FC = () => {
                   href={recurso.downloadUrl}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='inline-flex items-center justify-center text-sm font-medium py-2 px-4 rounded transition-colors duration-200 self-start'
+                  className='inline-flex items-center justify-center text-sm font-medium py-2 px-4 rounded transition-colors duration-200 self-center'
                   style={{ color: COR_DESTAQUE, border: `1px solid ${COR_DESTAQUE}`, backgroundColor: 'transparent' }}
                   onMouseOver={(e: React.MouseEvent<HTMLAnchorElement>) => {
                     e.currentTarget.style.backgroundColor = COR_DESTAQUE;

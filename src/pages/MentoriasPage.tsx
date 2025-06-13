@@ -33,7 +33,7 @@ export const MentoriasPage = () => {
           Eleve sua Edição
         </h1>
         <p className='mt-4 text-lg sm:text-xl max-w-2xl mx-auto' style={{ color: '#BBBBBB' }}>
-          Transforme sua técnica e narrativa. Aprenda com quem edita para os grandes players do mercado e conquiste seu espaço como um profissional de elite.
+          Transforme sua edição e conquiste seu espaço no mercado.
         </p>
 
         <div className='grid md:grid-cols-2 gap-10 md:gap-16 mt-16 text-left'>
@@ -42,9 +42,9 @@ export const MentoriasPage = () => {
               Para quem é a mentoria?
             </h2>
             <ul className='space-y-4' style={{ color: '#DDDDDD' }}>
-              <ListItem>Editores que buscam um caminho claro para o profissionalismo.</ListItem>
-              <ListItem>Freelancers que querem conquistar clientes maiores e cobrar mais.</ListItem>
-              <ListItem>Criadores de conteúdo que desejam elevar sua qualidade visual.</ListItem>
+              <ListItem>Editores que querem evoluir dos cortes básicos para edições profissionais e valorizadas.</ListItem>
+              <ListItem>Freelancers que buscam se destacar no mercado e aumentar seus ganhos.</ListItem>
+              <ListItem>Criadores de conteúdo que desejam dar um salto na qualidade dos seus vídeos curtos.</ListItem>
             </ul>
           </div>
           <div>
@@ -52,9 +52,9 @@ export const MentoriasPage = () => {
               O que você vai dominar:
             </h2>
             <ul className='space-y-4' style={{ color: '#DDDDDD' }}>
-              <ListItem>Storytelling, ritmo e técnicas avançadas de edição.</ListItem>
-              <ListItem>Color grading cinematográfico no DaVinci Resolve.</ListItem>
-              <ListItem>Workflows e processos de agências e grandes projetos.</ListItem>
+              <ListItem>Efeitos visuais, tipografia animada e transições criativas no Premiere e After.</ListItem>
+              <ListItem>Ritmo, cortes estratégicos e uso de áudio para maximizar retenção.</ListItem>
+              <ListItem>Processos, organização de projeto e entregas eficientes para clientes exigentes.</ListItem>
             </ul>
           </div>
         </div>
