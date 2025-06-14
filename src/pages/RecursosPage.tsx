@@ -2,6 +2,8 @@ import { AssetIcon } from '../components/icons/AssetIcon';
 import { DownloadIcon } from '../components/icons/DownloadIcon';
 import { COR_DESTAQUE, COR_FUNDO_CARD_RECURSO, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_CARD_RECURSO_DESC, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
 import type { RecursoDataItem } from '../types';
+import BG_IMG from '../assets/images/bg-2.png';
+import { BackgroundImage } from '../components/Background';
 
 export const RecursosPage: React.FC = () => {
   const recursosData: RecursoDataItem[] = [
@@ -46,6 +48,7 @@ export const RecursosPage: React.FC = () => {
     <div style={{ backgroundColor: COR_FUNDO_PRINCIPAL, color: COR_TEXTO_PRINCIPAL, fontFamily: FONTE_PRINCIPAL }} className='pt-20 pb-16 min-h-screen'>
       <section className='py-12 sm:py-16' style={{ backgroundColor: COR_FUNDO_PRINCIPAL }}>
         <div className='container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center text-left'>
+          <BackgroundImage src={BG_IMG} opacity={0.25} />
           <div className='mb-8 sm:mb-0'>
             <h2 className='text-xl font-semibold mb-2 uppercase tracking-wider' style={{ color: COR_TEXTO_CARD_RECURSO_DESC }}>
               Recursos

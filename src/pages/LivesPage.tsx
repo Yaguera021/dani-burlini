@@ -1,5 +1,7 @@
 import React from 'react';
 import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
+import BG_IMG from '../assets/images/bg-2.png';
+import { BackgroundImage } from '../components/Background';
 
 const COR_LIVE_PULSANTE = '#FF0000';
 
@@ -51,29 +53,43 @@ const livesData: LiveVideo[] = [
 
 export const LivesPage: React.FC = () => (
   <div
+    className='relative z-0'
     style={{
       backgroundColor: COR_FUNDO_PRINCIPAL,
       color: COR_TEXTO_PRINCIPAL,
       fontFamily: FONTE_PRINCIPAL,
     }}
-    className='pt-24 sm:pt-28 pb-16 min-h-screen'
   >
-    <div className='container mx-auto px-4'>
-      <div className='text-center'>
-        <h1 className='text-4xl sm:text-5xl font-bold mb-3 uppercase tracking-wider flex items-center justify-center' style={{ color: COR_DESTAQUE }}>
-          Nossas Lives
-          <span className='ml-3 w-3 h-3 sm:w-4 sm:h-4 rounded-full animate-pulse' style={{ backgroundColor: COR_LIVE_PULSANTE, boxShadow: `0 0 12px ${COR_LIVE_PULSANTE}` }} aria-hidden='true'></span>
-        </h1>
-        <p className='text-lg sm:text-xl mb-12 sm:mb-16' style={{ color: '#BBB' }}>
-          Confira as gravações e as próximas transmissões.
-        </p>
-      </div>
-      <div className='pt-12 pb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
+    <BackgroundImage src={BG_IMG} opacity={0.25} />
+
+    {/* Header */}
+    <section className='pt-24 sm:pt-28 pb-8 text-center relative z-10'>
+      <h1 className='text-4xl sm:text-5xl font-bold mb-3 uppercase tracking-wider flex items-center justify-center' style={{ color: COR_DESTAQUE }}>
+        Nossas Lives
+        <span
+          className='ml-3 w-3 h-3 sm:w-4 sm:h-4 rounded-full animate-pulse'
+          style={{
+            backgroundColor: COR_LIVE_PULSANTE,
+            boxShadow: `0 0 12px ${COR_LIVE_PULSANTE}`,
+          }}
+        />
+      </h1>
+      <p className='text-lg sm:text-xl' style={{ color: '#BBB' }}>
+        Confira as gravações e as próximas transmissões.
+      </p>
+    </section>
+
+    {/* Grid de Lives */}
+    <section className='container mx-auto px-4 pb-16 relative z-10'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
         {livesData.map((live) => (
           <div
             key={live.id}
-            className='block rounded-xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out hover:scale-105 group focus-within:ring-2 focus-within:ring-opacity-75'
-            style={{ backgroundColor: COR_FUNDO_SECUNDARIO || '#2D3748', borderColor: COR_DESTAQUE }}
+            className='block rounded-xl overflow-hidden transition-all duration-300 ease-in-out hover:scale-105 group'
+            style={{
+              backgroundColor: COR_FUNDO_SECUNDARIO || '#2D3748',
+              borderColor: COR_DESTAQUE,
+            }}
           >
             <div className='aspect-video w-full bg-black'>
               <iframe
@@ -85,7 +101,7 @@ export const LivesPage: React.FC = () => (
                 allowFullScreen
                 referrerPolicy='strict-origin-when-cross-origin'
                 loading='lazy'
-              ></iframe>
+              />
             </div>
             <div className='p-5 text-left'>
               <h3 className='text-lg xl:text-xl font-semibold mb-1.5 leading-tight' style={{ color: COR_TEXTO_PRINCIPAL }}>
@@ -98,7 +114,7 @@ export const LivesPage: React.FC = () => (
           </div>
         ))}
       </div>
-    </div>
+    </section>
   </div>
 );
 

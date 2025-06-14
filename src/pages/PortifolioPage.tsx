@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
+import BG_IMG from '../assets/images/bg-2.png';
+import { BackgroundImage } from '../components/Background';
 
 const PRELOADER_VIDEO_URL = 'https://res.cloudinary.com/dekqhffqi/video/upload/v1745962086/pj94jfjuyb77c0iw76l8.mp4';
 
@@ -21,7 +23,7 @@ const youtubeVideos = [
 let portfolioHasHadInitialLongLoad = false;
 
 export const PortifolioPage: React.FC = () => {
-  const [isPageLoading, setIsPageLoading] = useState(true);
+  const [isPageLoading, setIsPageLoading] = useState(false);
 
   useEffect(() => {
     let preloaderDuration: number;
@@ -78,6 +80,7 @@ export const PortifolioPage: React.FC = () => {
 
       <div className={`pt-24 pb-16 transition-opacity duration-700 ease-in-out ${isPageLoading ? 'opacity-0' : 'opacity-100'}`}>
         <div className='container mx-auto px-4 text-center'>
+          <BackgroundImage src={BG_IMG} opacity={0.25} />
           <h1 className='text-4xl sm:text-5xl font-bold sm:mb-16 uppercase tracking-wider' style={{ color: COR_DESTAQUE }}>
             Portifólio
           </h1>

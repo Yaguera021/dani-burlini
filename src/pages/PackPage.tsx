@@ -1,5 +1,7 @@
 import React from 'react';
 import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
+import { BackgroundImage } from '../components/Background';
+import BG_IMG from '../assets/images/bg-2.png';
 
 export const PackPage: React.FC = () => {
   const checkoutUrl = 'https://pay.kiwify.com.br/KmHDENb';
@@ -10,22 +12,24 @@ export const PackPage: React.FC = () => {
 
   return (
     <div
+      className='relative min-h-screen flex flex-col justify-center pt-28 pb-16 z-10'
       style={{
         backgroundColor: COR_FUNDO_PRINCIPAL,
         color: COR_TEXTO_PRINCIPAL,
         fontFamily: FONTE_PRINCIPAL,
       }}
-      className='pt-28 pb-12 min-h-screen'
     >
-      <div className='container mx-auto px-4 text-center'>
-        <h1 className='text-4xl sm:text-5xl font-bold pb-12 uppercase tracking-wider' style={{ color: COR_DESTAQUE }}>
-          Ultimate Pack
-        </h1>
-        <p className='text-lg sm:text-xl mb-12' style={{ color: '#BBB' }}>
-          Tenha acesso aos mesmos recursos que me tornaram um editor requisitado no mercado.
-        </p>
+      <BackgroundImage src={BG_IMG} opacity={0.25} />
 
-        <div className='mb-12 rounded-lg overflow-hidden aspect-video max-w-3xl lg:max-w-4xl mx-auto bg-black'>
+      <div className='relative z-10 container mx-auto px-4 text-center flex flex-col gap-12 items-center'>
+        <div className='max-w-3xl'>
+          <h1 className='text-4xl sm:text-5xl font-bold uppercase tracking-wide mb-4' style={{ color: COR_DESTAQUE }}>
+            Ultimate Pack
+          </h1>
+          <p className='text-lg sm:text-xl text-gray-300'>Tenha acesso aos mesmos recursos que me tornaram um editor requisitado no mercado.</p>
+        </div>
+
+        <div className='w-full max-w-3xl rounded-lg overflow-hidden aspect-video bg-black'>
           <iframe
             className='w-full h-full'
             src='https://www.youtube.com/embed/hn41LOhZqtM?si=m7sWtavrWHfUvsC3'
@@ -38,16 +42,14 @@ export const PackPage: React.FC = () => {
           ></iframe>
         </div>
 
-        <div className='p-8 rounded-lg shadow-xl max-w-md mx-auto' style={{ backgroundColor: COR_FUNDO_SECUNDARIO }}>
-          <h3 className='text-xl sm:text-3xl font-semibold mb-4' style={{}}>
-            De <span>R$ 99,00</span> por apenas
+        <div className='w-full max-w-md p-8 rounded-lg shadow-xl' style={{ backgroundColor: COR_FUNDO_SECUNDARIO }}>
+          <h3 className='text-xl sm:text-3xl font-semibold mb-2'>
+            De <span className='line-through text-gray-400'>R$ 99,00</span> por apenas
           </h3>
-          <h3 className='text-4xl sm:text-4xl font-bold mb-4' style={{ color: COR_DESTAQUE }}>
+          <h3 className='text-4xl font-bold mb-2' style={{ color: COR_DESTAQUE }}>
             R$ 29,70
           </h3>
-          <p className='text-base sm:text-sm mb-6' style={{ color: '#BBB' }}>
-            Você vai economizar R$ 69,30
-          </p>
+          <p className='text-sm text-gray-400 mb-6'>Você vai economizar R$ 69,30</p>
           <button
             className='w-full py-3 sm:py-4 px-8 rounded-lg text-lg sm:text-xl font-semibold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-md'
             style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}

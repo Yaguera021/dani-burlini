@@ -1,7 +1,6 @@
 @import 'tailwindcss';
-
 @layer utilities {
-  .animate-pulse {
+  .animate-pulse-custom {
     animation: pulseCustom 1.8s ease-out infinite;
   }
 
