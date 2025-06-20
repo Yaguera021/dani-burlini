@@ -1,8 +1,8 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
 import PERFIL_IMG from '../assets/images/PerfilImg2.png';
 import BG_IMG from '../assets/images/bg-2.png';
 import { BackgroundImage } from '../components/Background';
+import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
 
 interface HomePageProps {
   setCurrentPage: Dispatch<SetStateAction<string>>;
@@ -26,7 +26,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => (
               }
               setCurrentPage(pageNameTarget);
             }}
-            className='py-3 px-3 rounded-lg text-sm sm:px-5 sm:text-base font-semibold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-lg'
+            className='py-3 px-3 rounded-lg text-sm sm:px-5 sm:text-base font-semibold uppercase cursor-pointer tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-lg'
             style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}
           >
             {label}
@@ -41,18 +41,33 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => (
       <div className='absolute inset-0 z-0 flex justify-center items-center pointer-events-none'>
         <div className='w-[600px] h-[600px] rounded-md bg-[#C9F31D] opacity-8 blur-[100px]' />
       </div>
-      <div className='relative z-10 container mx-auto px-6 text-justify lg:px-8 flex flex-col md:flex-row items-center gap-10 md:gap-16'>
-        <div className='md:w-2/5 w-full max-w-md flex-shrink-0'>
-          <img src={PERFIL_IMG} alt='Daniel Burlini' loading='lazy' className='w-full h-full object-cover rounded-xl shadow-xl ' />
+      <div className='relative z-10 container mx-auto px-6 text-justify lg:px-8 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-12'>
+        <div className="relative md:w-2/5 w-full max-w-md flex-shrink-0">
+        {/* 1) Fundo borrado, ampliado */}
+        <div className="absolute inset-0 scale-105 filter blur-lg">
+          <img
+            src={PERFIL_IMG}
+            alt=""
+            className="w-[90%] h-full object-cover rounded-xl"
+          />
         </div>
-        <div className='md:w-3/5 text-center md:text-left'>
-          <h2 className='text-sm uppercase font-semibold tracking-wider mb-2' style={{ color: COR_DESTAQUE }}>
+
+        {/* 2) Foto nítida por cima */}
+        <img
+          src={PERFIL_IMG}
+          alt="Daniel Burlini"
+          loading="lazy"
+          className="relative w-[90%] h-full object-cover rounded-xl shadow-xl"
+        />
+      </div>
+        <div className='max-w-[600px] text-center md:text-left'>
+          <h2 className='text-xl uppercase font-semibold tracking-wider mb-2' style={{ color: COR_DESTAQUE }}>
             Sobre mim
           </h2>
-          <h3 className='text-3xl sm:text-4xl font-bold mb-6' style={{ color: COR_TEXTO_PRINCIPAL }}>
+          <h3 className='text-3xl md:py-4 sm:text-4xl font-bold' style={{ color: COR_TEXTO_PRINCIPAL }}>
             Olá, tudo bem?
           </h3>
-          <div className='space-y-4 text-base sm:text-lg leading-relaxed text-gray-300'>
+          <div className='space-y-4 md:py-6 text-base sm:text-xl font-semibold  leading-relaxed text-gray-300'>
             <p>Meu nome é Daniel Burlini de Saules. Sou natural do Rio de Janeiro, mas atualmente moro no Cassino, no Rio Grande do Sul.</p>
             <p>
               Comecei a atuar profissionalmente como editor de vídeos em 2023 e, desde então, já trabalhei em diversos projetos com diferentes clientes. Atualmente, me especializo na edição de vídeos
@@ -63,7 +78,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => (
           <div className='mt-8 text-center md:text-left'>
             <button
               onClick={() => setCurrentPage('Contato')}
-              className='py-3 px-10 rounded-lg text-lg font-semibold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-md'
+              className='py-3 px-10 rounded-lg text-lg font-semibold cursor-pointer uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-md'
               style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}
             >
               Contato

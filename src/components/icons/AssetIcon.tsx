@@ -1,4 +1,4 @@
-import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL } from '../../constants';
+import { COR_FUNDO_PRINCIPAL } from '../../constants';
 import type { RecursoDataItem } from '../../types';
 
 interface AssetIconProps {
@@ -20,7 +20,7 @@ export const AssetIcon: React.FC<AssetIconProps> = ({ type }) => {
     <div
       className='w-20 h-20 rounded-md flex items-center justify-center'
       style={{
-        backgroundColor: COR_DESTAQUE,
+        backgroundColor: "rgb(201 243 29 / 60%)",
         boxShadow: 'inset 0 1px 1px rgba(207, 231, 255, 0.2)',
       }}
     >

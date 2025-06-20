@@ -1,7 +1,7 @@
 import React from 'react';
-import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
-import { BackgroundImage } from '../components/Background';
 import BG_IMG from '../assets/images/bg-2.png';
+import { BackgroundImage } from '../components/Background';
+import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
 
 export const PackPage: React.FC = () => {
   const checkoutUrl = 'https://pay.kiwify.com.br/KmHDENb';
@@ -12,7 +12,7 @@ export const PackPage: React.FC = () => {
 
   return (
     <div
-      className='relative min-h-screen flex flex-col justify-center pt-28 pb-16 z-10'
+      className='relative min-h-screen flex flex-col justify-center pt-22 pb-16 z-10'
       style={{
         backgroundColor: COR_FUNDO_PRINCIPAL,
         color: COR_TEXTO_PRINCIPAL,
@@ -22,7 +22,7 @@ export const PackPage: React.FC = () => {
       <BackgroundImage src={BG_IMG} opacity={0.25} />
 
       <div className='relative z-10 container mx-auto px-4 text-center flex flex-col gap-12 items-center'>
-        <div className='max-w-3xl'>
+        <div className='max-w-3xl md:py-12'>
           <h1 className='text-4xl sm:text-5xl font-bold uppercase tracking-wide mb-4' style={{ color: COR_DESTAQUE }}>
             Ultimate Pack
           </h1>
@@ -44,14 +44,14 @@ export const PackPage: React.FC = () => {
 
         <div className='w-full max-w-md p-8 rounded-lg shadow-xl' style={{ backgroundColor: COR_FUNDO_SECUNDARIO }}>
           <h3 className='text-xl sm:text-3xl font-semibold mb-2'>
-            De <span className='line-through text-gray-400'>R$ 99,00</span> por apenas
+            De <span className='line-through text-gray-400'>R$ 99,00<br></br></span> por apenas
           </h3>
           <h3 className='text-4xl font-bold mb-2' style={{ color: COR_DESTAQUE }}>
             R$ 29,70
           </h3>
           <p className='text-sm text-gray-400 mb-6'>Você vai economizar R$ 69,30</p>
           <button
-            className='w-full py-3 sm:py-4 px-8 rounded-lg text-lg sm:text-xl font-semibold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-md'
+            className='w-full py-3 sm:py-4 px-8 cursor-pointer rounded-lg text-lg sm:text-xl font-semibold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-md'
             style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}
             onClick={handlePurchaseClick}
           >

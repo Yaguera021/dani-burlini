@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, type Dispatch, type SetStateAction } from 'react';
-import type { NavItem } from '../types';
 import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
-import { HamburgerIcon } from './icons/HamburgerIcon';
+import type { NavItem } from '../types';
 import { CloseIcon } from './icons/CloseIcon';
+import { HamburgerIcon } from './icons/HamburgerIcon';
 
 interface HeaderProps {
   currentPage: string;
@@ -85,10 +85,10 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, nav
               key={item.page}
               data-page={item.page}
               onClick={() => setCurrentPage(item.page)}
-              className={`py-2 px-2 lg:px-3 text-sm font-medium transition-colors duration-300 hover:text-[${COR_DESTAQUE}] focus:outline-none whitespace-nowrap relative`}
+              className={`py-2 px-2 lg:px-3 text-sm font-medium transition-colors duration-300 cursor-pointer hover:text-[${COR_DESTAQUE}] focus:outline-none whitespace-nowrap relative`}
               style={{ color: currentPage === item.page ? COR_DESTAQUE : COR_TEXTO_PRINCIPAL }}
             >
-              <span className='nav-item-text'>{item.label}</span>
+              <span className='nav-item-text text-[16px]'>{item.label}</span>
             </button>
           ))}
           <div
@@ -105,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, nav
 
         <button
           onClick={() => handleMobileLinkClick('Contato')}
-          className='hidden md:block py-2 px-5 rounded-md text-sm font-semibold transition-colors duration-300 flex-shrink-0'
+          className='hidden md:block py-2 px-5 rounded-md cursor-pointer text-sm font-semibold transition-colors duration-300 flex-shrink-0'
           style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}
         >
           CONTATO

@@ -1,7 +1,7 @@
 import React from 'react';
-import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
 import BG_IMG from '../assets/images/bg-2.png';
 import { BackgroundImage } from '../components/Background';
+import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
 
 const COR_LIVE_PULSANTE = '#FF0000';
 
@@ -63,7 +63,7 @@ export const LivesPage: React.FC = () => (
     <BackgroundImage src={BG_IMG} opacity={0.25} />
 
     {/* Header */}
-    <section className='pt-24 sm:pt-28 pb-8 text-center relative z-10'>
+    <section className='pt-24 sm:pt-34 pb-16 text-center relative z-10'>
       <h1 className='text-4xl sm:text-5xl font-bold mb-3 uppercase tracking-wider flex items-center justify-center' style={{ color: COR_DESTAQUE }}>
         Nossas Lives
         <span

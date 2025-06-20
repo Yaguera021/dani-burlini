@@ -1,9 +1,16 @@
-import { useEffect, useState } from 'react';
-import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
+import CircularProgress from '@mui/material/CircularProgress';
+import React, { useEffect, useState } from 'react';
 import BG_IMG from '../assets/images/bg-2.png';
 import { BackgroundImage } from '../components/Background';
+import {
+  COR_DESTAQUE,
+  COR_FUNDO_PRINCIPAL,
+  COR_TEXTO_PRINCIPAL,
+  FONTE_PRINCIPAL
+} from '../constants';
 
-const PRELOADER_VIDEO_URL = 'https://res.cloudinary.com/dekqhffqi/video/upload/v1745962086/pj94jfjuyb77c0iw76l8.mp4';
+const PRELOADER_VIDEO_URL =
+  'https://res.cloudinary.com/dekqhffqi/video/upload/v1745962086/pj94jfjuyb77c0iw76l8.mp4';
 
 const youtubeVideos = [
   { id: 'LvPLcz91AbI', title: 'brendiRelProd' },
@@ -17,7 +24,7 @@ const youtubeVideos = [
   { id: 'uPA5SmTJ00c', title: 'dicas' },
   { id: 'dFEW8kp6Ojs', title: 'Appolinario' },
   { id: 'JtRzx0y0IVQ', title: 'brendiSistema' },
-  { id: 'W-BUfd2dHHw', title: 'brendi' },
+  { id: 'W-BUfd2dHHw', title: 'brendi' }
 ];
 
 let portfolioHasHadInitialLongLoad = false;
@@ -26,30 +33,20 @@ export const PortifolioPage: React.FC = () => {
   const [isPageLoading, setIsPageLoading] = useState(true);
 
   useEffect(() => {
-    let preloaderDuration: number;
-
-    if (!portfolioHasHadInitialLongLoad) {
-      preloaderDuration = 16000;
-    } else {
-      preloaderDuration = 3500;
-    }
+    const preloaderDuration = !portfolioHasHadInitialLongLoad
+      ? 16000
+      : 3500;
 
     const timer = setTimeout(() => {
       setIsPageLoading(false);
-      if (!portfolioHasHadInitialLongLoad) {
-        portfolioHasHadInitialLongLoad = true;
-      }
+      portfolioHasHadInitialLongLoad = true;
     }, preloaderDuration);
 
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    if (isPageLoading) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = isPageLoading ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
@@ -57,46 +54,88 @@ export const PortifolioPage: React.FC = () => {
 
   return (
     <div
+      className="min-h-screen relative"
       style={{
         backgroundColor: COR_FUNDO_PRINCIPAL,
         color: COR_TEXTO_PRINCIPAL,
-        fontFamily: FONTE_PRINCIPAL,
+        fontFamily: FONTE_PRINCIPAL
       }}
-      className='min-h-screen relative'
     >
+      {/* Overlay de pré-loader */}
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-700 ease-in-out ${isPageLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-        style={{ backgroundColor: COR_FUNDO_PRINCIPAL }}
+        className={`
+          fixed inset-0 z-50 flex items-center justify-center
+          transition-opacity duration-700 ease-in-out
+          ${isPageLoading ? 'opacity-900' : 'opacity-0 pointer-events-none'}
+        `}
       >
-        {PRELOADER_VIDEO_URL ? (
-          <video autoPlay loop muted playsInline className='absolute top-0 left-0 w-full h-full object-cover' key={PRELOADER_VIDEO_URL}>
-            <source src={PRELOADER_VIDEO_URL} type='video/mp4' />
+        {PRELOADER_VIDEO_URL && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={PRELOADER_VIDEO_URL} type="video/mp4" />
             Carregando portifólio...
           </video>
-        ) : (
-          <div className='text-xl'>Carregando...</div>
         )}
+
+        {/* Overlay semitransparente */}
+        <div
+          className="absolute inset-0 bg-opacity-70"
+          style={{
+            backgroundColor: COR_FUNDO_PRINCIPAL,
+            opacity: 0.7
+          }}
+        />
+
+        <CircularProgress
+          size="3rem"
+          className="relative z-10"
+          style={{ color: "rgb(201 243 29 / 20%)" }}
+        />
       </div>
 
-      <div className={`pt-24 pb-16 transition-opacity duration-700 ease-in-out ${isPageLoading ? 'opacity-0' : 'opacity-100'}`}>
-        <div className='container mx-auto px-4 text-center'>
+      {/* Conteúdo da página */}
+      <div
+        className={`
+          pt-24 pb-12 transition-opacity duration-700 ease-in-out
+          ${isPageLoading ? 'opacity-0' : 'opacity-100'}
+        `}
+      >
+        <div className="container mx-auto px-4 text-center">
           <BackgroundImage src={BG_IMG} opacity={0.25} />
-          <h1 className='text-4xl sm:text-5xl font-bold sm:mb-16 uppercase tracking-wider' style={{ color: COR_DESTAQUE }}>
+
+          <h1
+            className="text-4xl sm:text-5xl font-bold sm:py-10 uppercase tracking-wider"
+            style={{ color: COR_DESTAQUE }}
+          >
             Portifólio
           </h1>
-          <div className='pt-12 pb-12 grid grid-cols-1 gap-y-8 max-w-xs xxs:max-w-xxs xs:max-w-xs sm:max-w-sm mx-auto md:grid-cols-3 md:gap-x-6 md:gap-y-10 md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'>
-            {youtubeVideos.map((video) => (
-              <div key={video.id} className='rounded-lg overflow-hidden shadow-xl aspect-[9/16] bg-black transition-transform duration-300 hover:scale-105 group'>
+
+          <div className="pt-12 pb-12 grid grid-cols-1 gap-y-8
+                          max-w-xs xxs:max-w-xxs xs:max-w-xs sm:max-w-sm
+                          mx-auto md:grid-cols-3 md:gap-x-6 md:gap-y-10
+                          md:max-w-3xl lg:max-w-5xl xl:max-w-6xl"
+          >
+            {youtubeVideos.map(video => (
+              <div
+                key={video.id}
+                className="rounded-lg overflow-hidden shadow-xl aspect-[9/16]
+                           bg-black transition-transform duration-300 hover:scale-105 group"
+              >
                 <iframe
-                  className='w-full h-full'
+                  className="w-full h-full"
                   src={`https://www.youtube.com/embed/${video.id}`}
                   title={video.title}
-                  frameBorder='0'
-                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                  referrerPolicy='strict-origin-when-cross-origin'
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
-                  loading='lazy'
-                ></iframe>
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
