@@ -38,7 +38,6 @@ Editor de vídeo com olhar criativo e técnico. Atua com foco em performance, br
 ## 🌐 Links Importantes
 
 - 🔗 Site: [danielburlini.com.br](https://danielburlini.com.br)
-- 📱 WhatsApp para orçamento: [inserir número]
 - 🛠 Desenvolvido por: [BRX Labs](https://brxlabs.com.br)
 
 ---
