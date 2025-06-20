@@ -31,6 +31,7 @@ export const ContatoPage: React.FC = () => {
               style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none' }}
               placeholder='Nome completo'
               required
+              maxLength={50}
             />
           </div>
           <div>
@@ -38,13 +39,14 @@ export const ContatoPage: React.FC = () => {
               Telefone
             </label>
             <input
-              type='number'
+              type='text'
               name='number'
               id='number'
               className='mt-1 block w-full px-3 py-3 rounded-md shadow-sm focus:ring-opacity-50 text-base'
               style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none' }}
               placeholder='Telefone'
               required
+              maxLength={15}
             />
           </div>
           <div>
@@ -59,6 +61,7 @@ export const ContatoPage: React.FC = () => {
               style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none' }}
               placeholder='Email'
               required
+              maxLength={50}
             />
           </div>
           <div>
@@ -73,6 +76,7 @@ export const ContatoPage: React.FC = () => {
               style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none' }}
               placeholder='Sua mensagem...'
               required
+              maxLength={600}
             ></textarea>
           </div>
           <div>
