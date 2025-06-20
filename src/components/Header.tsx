@@ -118,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage, nav
 
       {isMobileMenuOpen && (
         <div
-          className='fixed inset-0 z-[60] flex flex-col items-center justify-center space-y-6 md:hidden transition-opacity duration-300 ease-in-out' // Aumentado z-index
+          className='fixed inset-0 z-[60] flex flex-col items-center justify-center space-y-4 md:hidden transition-opacity duration-300 ease-in-out' // Aumentado z-index
           style={{ backgroundColor: COR_FUNDO_PRINCIPAL, fontFamily: FONTE_PRINCIPAL, opacity: 1 }}
         >
           <CloseIcon onClick={() => setIsMobileMenuOpen(false)} />

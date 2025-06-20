@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react';
 import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
-import PERFIL_IMG from '../assets/images/PerfilImg.png';
+import PERFIL_IMG from '../assets/images/PerfilImg2.png';
 import BG_IMG from '../assets/images/bg-2.png';
 import { BackgroundImage } from '../components/Background';
 
@@ -41,9 +41,9 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => (
       <div className='absolute inset-0 z-0 flex justify-center items-center pointer-events-none'>
         <div className='w-[600px] h-[600px] rounded-md bg-[#C9F31D] opacity-8 blur-[100px]' />
       </div>
-      <div className='relative z-10 container mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10 md:gap-16'>
+      <div className='relative z-10 container mx-auto px-6 text-justify lg:px-8 flex flex-col md:flex-row items-center gap-10 md:gap-16'>
         <div className='md:w-2/5 w-full max-w-md flex-shrink-0'>
-          <img src={PERFIL_IMG} alt='Daniel Burlini' loading='lazy' className='w-full h-auto object-cover' />
+          <img src={PERFIL_IMG} alt='Daniel Burlini' loading='lazy' className='w-full h-full object-cover rounded-xl shadow-xl ' />
         </div>
         <div className='md:w-3/5 text-center md:text-left'>
           <h2 className='text-sm uppercase font-semibold tracking-wider mb-2' style={{ color: COR_DESTAQUE }}>
