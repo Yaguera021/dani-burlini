@@ -1,10 +1,28 @@
 import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
 
 export const ContatoPage: React.FC = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    alert('Mensagem enviada!');
-    (event.target as HTMLFormElement).reset();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const data = {
+      nome_completo: form.nome_completo.value,
+      telefone: form.telefone.value,
+      email: form.email.value,
+      mensagem: form.mensagem.value,
+    };
+
+    const res = await fetch('https://webhook.brxlabs.com.br/webhook/dani_burlini_leads_site', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      alert('Mensagem enviada com sucesso!');
+      form.reset();
+    } else {
+      alert('Erro ao enviar mensagem.');
+    }
   };
 
   return (
@@ -20,13 +38,13 @@ export const ContatoPage: React.FC = () => {
         </div>
         <form onSubmit={handleSubmit} className='space-y-6 p-8 rounded-lg shadow-xl' style={{ backgroundColor: COR_FUNDO_SECUNDARIO }}>
           <div>
-            <label htmlFor='name' className='block text-sm font-medium text-left mb-1' style={{ color: COR_DESTAQUE }}>
+            <label htmlFor='nome_completo' className='block text-sm font-medium text-left mb-1' style={{ color: COR_DESTAQUE }}>
               Nome Completo
             </label>
             <input
               type='text'
-              name='name'
-              id='name'
+              name='nome_completo'
+              id='nome_completo'
               className='mt-1 block w-full px-3 py-3 rounded-md shadow-sm focus:ring-opacity-50 text-base'
               style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none' }}
               placeholder='Nome completo'
@@ -35,13 +53,13 @@ export const ContatoPage: React.FC = () => {
             />
           </div>
           <div>
-            <label htmlFor='name' className='block text-sm font-medium text-left mb-1' style={{ color: COR_DESTAQUE }}>
+            <label htmlFor='telefone' className='block text-sm font-medium text-left mb-1' style={{ color: COR_DESTAQUE }}>
               Telefone
             </label>
             <input
               type='text'
-              name='number'
-              id='number'
+              name='telefone'
+              id='telefone'
               className='mt-1 block w-full px-3 py-3 rounded-md shadow-sm focus:ring-opacity-50 text-base'
               style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none' }}
               placeholder='Telefone'
@@ -65,12 +83,12 @@ export const ContatoPage: React.FC = () => {
             />
           </div>
           <div>
-            <label htmlFor='message' className='block text-sm font-medium text-left mb-1' style={{ color: COR_DESTAQUE }}>
+            <label htmlFor='mensagem' className='block text-sm font-medium text-left mb-1' style={{ color: COR_DESTAQUE }}>
               Mensagem
             </label>
             <textarea
-              name='message'
-              id='message'
+              name='mensagem'
+              id='mensagem'
               rows={5}
               className='mt-1 block w-full px-3 py-3 rounded-md shadow-sm text-base'
               style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none' }}
