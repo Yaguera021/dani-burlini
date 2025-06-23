@@ -2,7 +2,6 @@ import { useState } from 'react';
 import type { NavItem } from './types';
 import { COR_FUNDO_PRINCIPAL } from './constants';
 import { HomePage } from './pages/HomePage';
-import { PortifolioPage } from './pages/PortifolioPage';
 import { RecursosPage } from './pages/RecursosPage';
 import { LivesPage } from './pages/LivesPage';
 import { PackPage } from './pages/PackPage';
@@ -11,13 +10,14 @@ import { ContatoPage } from './pages/ContatoPage';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { WhatsappButton } from './components/WhatsappButton';
+import { PortfolioPage } from './pages/PortfolioPage';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>('Home');
 
   const navItems: NavItem[] = [
     { page: 'Home', label: 'Home' },
-    { page: 'Portifólio', label: 'Portifólio' },
+    { page: 'Portfólio', label: 'Portfólio' },
     { page: 'Recursos', label: 'Recursos' },
     { page: 'Lives', label: 'Lives' },
     { page: 'Pack', label: 'Pack' },
@@ -28,8 +28,8 @@ export default function App() {
     switch (currentPage) {
       case 'Home':
         return <HomePage setCurrentPage={setCurrentPage} />;
-      case 'Portifólio':
-        return <PortifolioPage />;
+      case 'Portfólio':
+        return <PortfolioPage />;
       case 'Recursos':
         return <RecursosPage />;
       case 'Lives':

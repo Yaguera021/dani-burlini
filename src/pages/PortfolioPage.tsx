@@ -27,7 +27,7 @@ const youtubeVideos = [
 
 let portfolioHasHadInitialLongLoad = false;
 
-export const PortifolioPage: React.FC = () => {
+export const PortfolioPage: React.FC = () => {
   const [isPageLoading, setIsPageLoading] = useState(false);
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export const PortifolioPage: React.FC = () => {
         {PRELOADER_VIDEO_URL && (
           <video autoPlay loop muted playsInline className='absolute inset-0 w-full h-full object-cover'>
             <source src={PRELOADER_VIDEO_URL} type='video/mp4' />
-            Carregando portifólio...
+            Carregando portfólio...
           </video>
         )}
 
@@ -95,7 +95,7 @@ export const PortifolioPage: React.FC = () => {
           <BackgroundImage src={BG_IMG} opacity={0.25} />
 
           <h1 className='text-4xl sm:text-5xl font-bold sm:py-10 uppercase tracking-wider' style={{ color: COR_DESTAQUE }}>
-            Portifólio
+            Portfólio
           </h1>
 
           <div
@@ -105,11 +105,7 @@ export const PortifolioPage: React.FC = () => {
                           md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'
           >
             {youtubeVideos.map((video) => (
-              <div
-                key={video.id}
-                className='rounded-lg overflow-hidden shadow-xl aspect-[9/16]
-                           bg-black transition-transform duration-300 hover:scale-105 group'
-              >
+              <div key={video.id} className='rounded-lg overflow-hidden shadow-xl aspect-[9/16] bg-black transition-transform duration-300 hover:scale-105 group'>
                 <iframe
                   className='w-full h-full'
                   src={`https://www.youtube.com/embed/${video.id}`}
