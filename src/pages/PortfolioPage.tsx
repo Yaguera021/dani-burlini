@@ -28,7 +28,7 @@ const youtubeVideos = [
 let portfolioHasHadInitialLongLoad = false;
 
 export const PortfolioPage: React.FC = () => {
-  const [isPageLoading, setIsPageLoading] = useState(false);
+  const [isPageLoading, setIsPageLoading] = useState(true);
 
   useEffect(() => {
     const preloaderDuration = !portfolioHasHadInitialLongLoad ? 16000 : 3500;
