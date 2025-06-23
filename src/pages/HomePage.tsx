@@ -16,7 +16,7 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => (
         Seu navegador não suporta o elemento de vídeo.
       </video>
       <div className='relative pb-8 sm:pb-16 md:pb-20 z-10 grid grid-cols-2 gap-x-12 gap-y-4 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-5 lg:grid-cols-4 lg:gap-x-5'>
-        {['Portifólio', 'Ultimate Pack', 'Lives', 'Mentorias'].map((label) => (
+        {['Portfólio', 'Ultimate Pack', 'Lives', 'Mentorias'].map((label) => (
           <button
             key={label}
             onClick={() => {
@@ -42,24 +42,15 @@ export const HomePage: React.FC<HomePageProps> = ({ setCurrentPage }) => (
         <div className='w-[600px] h-[600px] rounded-md bg-[#C9F31D] opacity-8 blur-[100px]' />
       </div>
       <div className='relative z-10 container mx-auto px-6 text-justify lg:px-8 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-12'>
-        <div className="relative md:w-2/5 w-full max-w-md flex-shrink-0">
-        {/* 1) Fundo borrado, ampliado */}
-        <div className="absolute inset-0 scale-105 filter blur-lg">
-          <img
-            src={PERFIL_IMG}
-            alt=""
-            className="w-[90%] h-full object-cover rounded-xl"
-          />
-        </div>
+        <div className='relative md:w-2/5 w-full max-w-md flex-shrink-0'>
+          {/* 1) Fundo borrado, ampliado */}
+          <div className='absolute inset-0 scale-105 filter blur-lg'>
+            <img src={PERFIL_IMG} alt='' className='w-[90%] h-full object-cover rounded-xl' />
+          </div>
 
-        {/* 2) Foto nítida por cima */}
-        <img
-          src={PERFIL_IMG}
-          alt="Daniel Burlini"
-          loading="lazy"
-          className="relative w-[90%] h-full object-cover rounded-xl shadow-xl"
-        />
-      </div>
+          {/* 2) Foto nítida por cima */}
+          <img src={PERFIL_IMG} alt='Daniel Burlini' loading='lazy' className='relative w-[90%] h-full object-cover rounded-xl shadow-xl' />
+        </div>
         <div className='max-w-[600px] text-center md:text-left'>
           <h2 className='text-xl uppercase font-semibold tracking-wider mb-2' style={{ color: COR_DESTAQUE }}>
             Sobre mim
