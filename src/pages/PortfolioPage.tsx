@@ -5,7 +5,7 @@ import { BackgroundImage } from '../components/Background';
 import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
 
 const PRELOADER_VIDEO_URL = 'https://res.cloudinary.com/dekqhffqi/video/upload/v1745962086/pj94jfjuyb77c0iw76l8.mp4';
-const PRELOADER_DURATION = 3500; 
+const PRELOADER_DURATION = 4500; 
 
 const youtubeVideos = [
   { id: 'aDNr6d-Mg60', title: 'LFTN' },
