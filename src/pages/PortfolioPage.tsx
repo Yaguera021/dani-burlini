@@ -5,41 +5,36 @@ import { BackgroundImage } from '../components/Background';
 import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
 
 const PRELOADER_VIDEO_URL = 'https://res.cloudinary.com/dekqhffqi/video/upload/v1745962086/pj94jfjuyb77c0iw76l8.mp4';
+const INITIAL_PRELOADER_DURATION = 3500;
 
-const youtubeVideos = [
-  { id: 'aDNr6d-Mg60', title: 'LFTN' },
-  { id: 'ok3ByyxLwKY', title: 'JoaoAppolinario' },
-  { id: '0XV1JNCWWzo', title: 'Brandi' },
-  { id: 'vV2TGVvQF8A', title: 'BrunaGriphao' },
-  { id: 'IJ3HKP6b_Mw', title: 'PimentaFightClub' },
-  { id: 'NDI2IUog4ck', title: 'Lasaro' },
-  { id: 'W-BUfd2dHHw', title: 'brendi' },
-  { id: 'LvPLcz91AbI', title: 'brendiRelProd' },
-  { id: 'ErRE-ejVeG8', title: 'PV' },
-  { id: 'tzElyk6KFWw', title: 'LeoArruda' },
-  { id: 'wkweXbYOal0', title: 'pvGeraldo' },
-  { id: 'a9YjDjuNF_I', title: 'botPreview' },
-  { id: 'Ki9lhhHv5j0', title: 'robozinho' },
-  { id: 'uPA5SmTJ00c', title: 'dicas' },
-  { id: 'dFEW8kp6Ojs', title: 'Appolinario' },
-  { id: 'JtRzx0y0IVQ', title: 'brendiSistema' },
-];
-
-let portfolioHasHadInitialLongLoad = false;
+// Persist flag across component mounts within the same session
+let hasVisitedPortfolio = false;
 
 export const PortfolioPage: React.FC = () => {
   const [isPageLoading, setIsPageLoading] = useState(true);
+  const [loadedCount, setLoadedCount] = useState(0);
+  const totalVideos = youtubeVideos.length;
 
   useEffect(() => {
-    const preloaderDuration = !portfolioHasHadInitialLongLoad ? 16000 : 3500;
+    let timer: NodeJS.Timeout;
 
-    const timer = setTimeout(() => {
+    if (!hasVisitedPortfolio) {
+      // Hide loader when all iframes are loaded or after timeout
+      if (loadedCount >= totalVideos) {
+        setIsPageLoading(false);
+        hasVisitedPortfolio = true;
+      } else {
+        timer = setTimeout(() => {
+          setIsPageLoading(false);
+          hasVisitedPortfolio = true;
+        }, INITIAL_PRELOADER_DURATION);
+      }
+    } else {
       setIsPageLoading(false);
-      portfolioHasHadInitialLongLoad = true;
-    }, preloaderDuration);
+    }
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [loadedCount]);
 
   useEffect(() => {
     document.body.style.overflow = isPageLoading ? 'hidden' : '';
@@ -48,9 +43,11 @@ export const PortfolioPage: React.FC = () => {
     };
   }, [isPageLoading]);
 
+  const handleIframeLoad = () => setLoadedCount((prev) => prev + 1);
+
   return (
     <div
-      className='min-h-screen relative'
+      className="min-h-screen relative"
       style={{
         backgroundColor: COR_FUNDO_PRINCIPAL,
         color: COR_TEXTO_PRINCIPAL,
@@ -62,26 +59,26 @@ export const PortfolioPage: React.FC = () => {
         className={`
           fixed inset-0 z-50 flex items-center justify-center
           transition-opacity duration-700 ease-in-out
-          ${isPageLoading ? 'opacity-900' : 'opacity-0 pointer-events-none'}
+          ${isPageLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'}
         `}
       >
-        {PRELOADER_VIDEO_URL && (
-          <video autoPlay loop muted playsInline className='absolute inset-0 w-full h-full object-cover'>
-            <source src={PRELOADER_VIDEO_URL} type='video/mp4' />
+        {PRELOADER_VIDEO_URL && isPageLoading && (
+          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+            <source src={PRELOADER_VIDEO_URL} type="video/mp4" />
             Carregando portfólio...
           </video>
         )}
 
-        {/* Overlay semitransparente */}
-        <div
-          className='absolute inset-0 bg-opacity-70'
-          style={{
-            backgroundColor: COR_FUNDO_PRINCIPAL,
-            opacity: 0.7,
-          }}
-        />
+        {isPageLoading && (
+          <div
+            className="absolute inset-0 bg-opacity-70"
+            style={{ backgroundColor: COR_FUNDO_PRINCIPAL, opacity: 0.7 }}
+          />
+        )}
 
-        <CircularProgress size='3rem' className='relative z-10' style={{ color: 'rgb(201 243 29 / 20%)' }} />
+        {isPageLoading && (
+          <CircularProgress size="3rem" className="relative z-10" style={{ color: 'rgb(201 243 29 / 20%)' }} />
+        )}
       </div>
 
       {/* Conteúdo da página */}
@@ -91,30 +88,34 @@ export const PortfolioPage: React.FC = () => {
           ${isPageLoading ? 'opacity-0' : 'opacity-100'}
         `}
       >
-        <div className='container mx-auto px-4 text-center'>
+        <div className="container mx-auto px-4 text-center">
           <BackgroundImage src={BG_IMG} opacity={0.25} />
 
-          <h1 className='text-4xl sm:text-5xl font-bold sm:py-10 uppercase tracking-wider' style={{ color: COR_DESTAQUE }}>
+          <h1
+            className="text-4xl sm:text-5xl font-bold sm:py-10 uppercase tracking-wider"
+            style={{ color: COR_DESTAQUE }}
+          >
             Portfólio
           </h1>
 
           <div
-            className='pt-12 pb-12 grid grid-cols-1 gap-y-8
+            className="pt-12 pb-12 grid grid-cols-1 gap-y-8
                           max-w-xs xxs:max-w-xxs xs:max-w-xs sm:max-w-sm
                           mx-auto md:grid-cols-3 md:gap-x-6 md:gap-y-10
-                          md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'
+                          md:max-w-3xl lg:max-w-5xl xl:max-w-6xl"
           >
             {youtubeVideos.map((video) => (
-              <div key={video.id} className='rounded-lg overflow-hidden shadow-xl aspect-[9/16] bg-black transition-transform duration-300 hover:scale-105 group'>
+              <div key={video.id} className="rounded-lg overflow-hidden shadow-xl aspect-[9/16] bg-black transition-transform duration-300 hover:scale-105 group">
                 <iframe
-                  className='w-full h-full'
+                  className="w-full h-full"
                   src={`https://www.youtube.com/embed/${video.id}`}
                   title={video.title}
-                  frameBorder='0'
-                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                  referrerPolicy='strict-origin-when-cross-origin'
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
-                  loading='lazy'
+                  loading="lazy"
+                  onLoad={handleIframeLoad}
                 />
               </div>
             ))}
