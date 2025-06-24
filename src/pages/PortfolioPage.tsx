@@ -5,6 +5,7 @@ import { BackgroundImage } from '../components/Background';
 import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
 
 const PRELOADER_VIDEO_URL = 'https://res.cloudinary.com/dekqhffqi/video/upload/v1745962086/pj94jfjuyb77c0iw76l8.mp4';
+const PRELOADER_DURATION = 3500; 
 
 const youtubeVideos = [
   { id: 'aDNr6d-Mg60', title: 'LFTN' },
@@ -25,34 +26,17 @@ const youtubeVideos = [
   { id: 'JtRzx0y0IVQ', title: 'brendiSistema' },
 ];
 
-const INITIAL_PRELOADER_DURATION = 3500;
-let hasVisitedPortfolio = false;
-
 export const PortfolioPage: React.FC = () => {
   const [isPageLoading, setIsPageLoading] = useState(true);
-  const [loadedCount, setLoadedCount] = useState(0);
 
   useEffect(() => {
-    let timer: number;
-
-    if (!hasVisitedPortfolio) {
-      if (loadedCount >= youtubeVideos.length) {
-        setIsPageLoading(false);
-        hasVisitedPortfolio = true;
-      } else {
-        timer = window.setTimeout(() => {
-          setIsPageLoading(false);
-          hasVisitedPortfolio = true;
-        }, INITIAL_PRELOADER_DURATION);
-      }
-    } else {
+    const timer = window.setTimeout(() => {
       setIsPageLoading(false);
-    }
-
+    }, PRELOADER_DURATION);
     return () => {
       clearTimeout(timer);
     };
-  }, [loadedCount]);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isPageLoading ? 'hidden' : '';
@@ -60,8 +44,6 @@ export const PortfolioPage: React.FC = () => {
       document.body.style.overflow = '';
     };
   }, [isPageLoading]);
-
-  const handleIframeLoad = () => setLoadedCount((prev) => prev + 1);
 
   return (
     <div
@@ -81,20 +63,24 @@ export const PortfolioPage: React.FC = () => {
           </video>
         )}
         {isPageLoading && (
-          <div className="absolute inset-0 bg-opacity-70" style={{ backgroundColor: COR_FUNDO_PRINCIPAL, opacity: 0.7 }} />
+          <div
+            className="absolute inset-0 bg-opacity-70"
+            style={{ backgroundColor: COR_FUNDO_PRINCIPAL, opacity: 0.7 }}
+          />
         )}
         {isPageLoading && (
           <CircularProgress size="3rem" className="relative z-10" style={{ color: 'rgb(201 243 29 / 20%)' }} />
         )}
       </div>
 
-      {/* Conteúdo da página */}
       <div className={`pt-24 pb-12 transition-opacity duration-700 ease-in-out ${isPageLoading ? 'opacity-0' : 'opacity-100'}`}>
         <div className="container mx-auto px-4 text-center">
           <BackgroundImage src={BG_IMG} opacity={0.25} />
+
           <h1 className="text-4xl sm:text-5xl font-bold sm:py-10 uppercase tracking-wider" style={{ color: COR_DESTAQUE }}>
             Portfólio
           </h1>
+
           <div className="pt-12 pb-12 grid grid-cols-1 gap-y-8 max-w-xs xxs:max-w-xxs xs:max-w-xs sm:max-w-sm mx-auto md:grid-cols-3 md:gap-x-6 md:gap-y-10 md:max-w-3xl lg:max-w-5xl xl:max-w-6xl">
             {youtubeVideos.map((video) => (
               <div key={video.id} className="rounded-lg overflow-hidden shadow-xl aspect-[9/16] bg-black transition-transform duration-300 hover:scale-105 group">
@@ -107,7 +93,6 @@ export const PortfolioPage: React.FC = () => {
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                   loading="lazy"
-                  onLoad={handleIframeLoad}
                 />
               </div>
             ))}
