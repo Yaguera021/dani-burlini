@@ -33,14 +33,14 @@ export const PortfolioPage: React.FC = () => {
   const [loadedCount, setLoadedCount] = useState(0);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer: number;
 
     if (!hasVisitedPortfolio) {
       if (loadedCount >= youtubeVideos.length) {
         setIsPageLoading(false);
         hasVisitedPortfolio = true;
       } else {
-        timer = setTimeout(() => {
+        timer = window.setTimeout(() => {
           setIsPageLoading(false);
           hasVisitedPortfolio = true;
         }, INITIAL_PRELOADER_DURATION);
@@ -49,12 +49,16 @@ export const PortfolioPage: React.FC = () => {
       setIsPageLoading(false);
     }
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [loadedCount]);
 
   useEffect(() => {
     document.body.style.overflow = isPageLoading ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isPageLoading]);
 
   const handleIframeLoad = () => setLoadedCount((prev) => prev + 1);
