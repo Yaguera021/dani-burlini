@@ -91,7 +91,7 @@ export const ContatoPage: React.FC = () => {
               id='mensagem'
               rows={5}
               className='mt-1 block w-full px-3 py-3 rounded-md shadow-sm text-base'
-              style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none' }}
+              style={{ backgroundColor: '#2D2D2D', color: COR_TEXTO_PRINCIPAL, border: `1px solid ${COR_DESTAQUE}40`, outline: 'none', resize: 'none' }}
               placeholder='Sua mensagem...'
               required
               maxLength={600}
