@@ -1,4 +1,3 @@
-// src/pages/HomePage.tsx
 import { useNavigate } from 'react-router-dom';
 import PERFIL_IMG from '../assets/images/PerfilImg2.png';
 import BG_IMG from '../assets/images/bg-2.png';
@@ -79,7 +78,7 @@ export const HomePage: React.FC = () => {
             <div className='mt-8 text-center md:text-left'>
               <button
                 onClick={() => navigate('/contato')}
-                className='py-3 px-10 rounded-lg text-lg font-semibold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-md'
+                className='py-3 px-10 rounded-lg text-lg font-semibold uppercase tracking-wider cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-md'
                 style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}
               >
                 Contato

@@ -1,4 +1,3 @@
-// src/components/Header.tsx
 import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
@@ -71,7 +70,7 @@ export const Header: React.FC = () => {
               key={item.to}
               data-to={item.to}
               onClick={() => navigate(item.to)}
-              className='py-2 px-3 font-medium transition-colors duration-300 relative focus:outline-none'
+              className='py-2 px-3 font-medium transition-colors duration-300 relative cursor-pointer focus:outline-none'
               style={{ color: location.pathname === item.to ? COR_DESTAQUE : COR_TEXTO_PRINCIPAL }}
             >
               <span className='nav-item-text text-[16px]'>{item.label}</span>
@@ -89,7 +88,11 @@ export const Header: React.FC = () => {
           />
         </nav>
 
-        <button onClick={() => navigate('/contato')} className='hidden md:block py-2 px-5 rounded-md font-semibold' style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}>
+        <button
+          onClick={() => navigate('/contato')}
+          className='hidden md:block py-2 px-5 rounded-md font-semibold uppercase tracking-wider transition-all cursor-pointer duration-300  hover:scale-105 text-sm sm:text-base transform  hover:shadow-lg'
+          style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}
+        >
           CONTATO
         </button>
 
