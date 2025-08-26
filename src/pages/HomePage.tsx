@@ -77,7 +77,7 @@ export const HomePage: React.FC = () => {
             </div>
             <div className='mt-8 text-center md:text-left'>
               <button
-                onClick={() => navigate('/contato')}
+                onClick={() => window.open('https://api.whatsapp.com/send?phone=555381003500&text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+suas+mentorias.', '_blank')}
                 className='py-3 px-10 rounded-lg text-lg font-semibold uppercase tracking-wider cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-md'
                 style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}
               >
