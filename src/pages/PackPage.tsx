@@ -26,13 +26,14 @@ export const PackPage: React.FC = () => {
           <h1 className='text-4xl sm:text-5xl font-bold uppercase tracking-wide mb-4' style={{ color: COR_DESTAQUE }}>
             Ultimate Pack
           </h1>
-          <p className='text-lg sm:text-xl text-gray-300'>Tenha acesso aos mesmos recursos que me tornaram um editor requisitado no mercado.</p>
+          <p className='text-lg sm:text-xl text-gray-300'>Um pack de edição com todos os elementos que você precisa em um só lugar para editar vídeos de qualidade de qualquer estilo.  
+</p>
         </div>
 
         <div className='w-full max-w-3xl rounded-lg overflow-hidden aspect-video bg-black'>
           <iframe
             className='w-full h-full'
-            src='https://www.youtube.com/embed/hn41LOhZqtM?si=m7sWtavrWHfUvsC3'
+            src='https://www.youtube.com/embed/SqiJ7ThNRTc'
             title='Demonstração do Ultimate Pack'
             frameBorder='0'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
