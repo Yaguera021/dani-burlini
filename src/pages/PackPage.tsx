@@ -23,11 +23,10 @@ export const PackPage: React.FC = () => {
 
       <div className='relative z-10 container mx-auto px-4 text-center flex flex-col gap-12 items-center'>
         <div className='max-w-3xl md:py-12'>
-          <h1 className='text-4xl sm:text-5xl font-bold uppercase tracking-wide mb-4' style={{ color: COR_DESTAQUE }}>
+          <h1 className='text-4xl sm:text-5xl font-extrabold uppercase tracking-[-0.06em] mb-4' style={{ color: COR_DESTAQUE }}>
             Ultimate Pack
           </h1>
-          <p className='text-lg sm:text-xl text-gray-300'>Um pack de edição com todos os elementos que você precisa em um só lugar para editar vídeos de qualidade de qualquer estilo.  
-</p>
+          <p className='text-lg font-bold tracking-[-0.02em] sm:text-xl text-gray-300'>TUDO que você precisa para EDITAR em um só lugar.</p>
         </div>
 
         <div className='w-full max-w-3xl rounded-lg overflow-hidden aspect-video bg-black'>
@@ -52,7 +51,7 @@ export const PackPage: React.FC = () => {
           </h3>
           <p className='text-sm text-gray-400 mb-6'>Você vai economizar R$ 69,30</p>
           <button
-            className='w-full py-3 sm:py-4 px-8 cursor-pointer rounded-lg text-lg sm:text-xl font-semibold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-md'
+            className='w-full py-1 cursor-pointer rounded-lg whitespace-nowrap text-xl sm:text-2xl font-extrabold uppercase tracking-[-0.055em] transition-all duration-300 transform hover:scale-105 hover:shadow-md'
             style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}
             onClick={handlePurchaseClick}
           >

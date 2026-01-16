@@ -7,10 +7,10 @@ import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRIN
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const buttons = [
-    { label: 'Portfólio', to: '/portfolio' },
     { label: 'Ultimate Pack', to: '/pack' },
     { label: 'Lives', to: '/lives' },
-    { label: 'Mentorias', to: '/mentorias' },
+    { label: 'Portfólio', to: '/portfolio' },
+    { label: 'Mentoria', to: '/mentorias' },
   ];
 
   return (
@@ -33,7 +33,7 @@ export const HomePage: React.FC = () => {
             <button
               key={label}
               onClick={() => navigate(to)}
-              className='py-3 px-3 rounded-lg text-sm sm:px-5 sm:text-base font-semibold uppercase cursor-pointer tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-lg'
+              className='py-3 px-3 rounded-lg text-sm sm:px-5 sm:text-base font-extrabold uppercase cursor-pointer tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-lg'
               style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}
             >
               {label}
@@ -51,12 +51,9 @@ export const HomePage: React.FC = () => {
 
         <div className='relative z-10 container mx-auto px-6 text-justify lg:px-8 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-12'>
           <div className='relative md:w-2/5 w-full max-w-md flex-shrink-0'>
-            {/* 1) Fundo borrado, ampliado */}
             <div className='absolute inset-0 scale-105 filter blur-lg'>
               <img src={PERFIL_IMG} alt='' className='w-[90%] h-full object-cover rounded-xl' />
             </div>
-
-            {/* 2) Foto nítida por cima */}
             <img src={PERFIL_IMG} alt='Daniel Burlini' loading='lazy' className='relative w-[90%] h-full object-cover rounded-xl shadow-xl' />
           </div>
 
@@ -78,7 +75,7 @@ export const HomePage: React.FC = () => {
             <div className='mt-8 text-center md:text-left'>
               <button
                 onClick={() => window.open('https://api.whatsapp.com/send?phone=555381003500&text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+suas+mentorias.', '_blank')}
-                className='py-3 px-10 rounded-lg text-lg font-semibold uppercase tracking-wider cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-md'
+                className='py-3 px-10 rounded-lg text-lg font-extrabold uppercase cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-md'
                 style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}
               >
                 Contato

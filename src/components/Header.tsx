@@ -10,11 +10,11 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { to: '/', label: 'Home' },
-  { to: '/portfolio', label: 'Portfólio' },
-  { to: '/recursos', label: 'Recursos' },
-  { to: '/lives', label: 'Lives' },
-  { to: '/pack', label: 'Pack' },
+  { to: '/', label: 'HOME' },
+  { to: '/pack', label: 'ULTIMATE PACK' },
+  { to: '/portfolio', label: 'PORTFÓLIO' },
+  { to: '/recursos', label: 'RECURSOS' },
+  { to: '/lives', label: 'LIVES' },
 ];
 
 export const Header: React.FC = () => {
@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
   return (
     <header style={{ fontFamily: FONTE_PRINCIPAL, backgroundColor: COR_FUNDO_PRINCIPAL, color: COR_TEXTO_PRINCIPAL }} className='fixed top-0 left-0 right-0 z-50 shadow-md'>
       <div className='container mx-auto px-4 flex items-center justify-between h-20'>
-        <div className='text-3xl font-bold cursor-pointer' onClick={() => navigate('/')} style={{ color: COR_TEXTO_PRINCIPAL }}>
+        <div className='text-3xl tracking-[-0.06em] font-bold cursor-pointer' onClick={() => navigate('/')} style={{ color: COR_TEXTO_PRINCIPAL }}>
           <span className='font-light'>daniel</span>burlini
         </div>
 
@@ -70,7 +70,7 @@ export const Header: React.FC = () => {
               key={item.to}
               data-to={item.to}
               onClick={() => navigate(item.to)}
-              className='py-2 px-3 font-medium transition-colors duration-300 relative cursor-pointer focus:outline-none'
+              className='py-2 px-3 font-bold transition-colors duration-300 relative cursor-pointer focus:outline-none'
               style={{ color: location.pathname === item.to ? COR_DESTAQUE : COR_TEXTO_PRINCIPAL }}
             >
               <span className='nav-item-text text-[16px]'>{item.label}</span>
@@ -90,7 +90,7 @@ export const Header: React.FC = () => {
 
         <button
           onClick={() => navigate('/contato')}
-          className='hidden md:block py-2 px-5 rounded-md font-semibold uppercase tracking-wider transition-all cursor-pointer duration-300  hover:scale-105 text-sm sm:text-base transform  hover:shadow-lg'
+          className='hidden md:block py-2 px-5 rounded-md font-extrabold uppercase transition-all cursor-pointer duration-300  hover:scale-105 text-sm sm:text-base transform  hover:shadow-lg'
           style={{ backgroundColor: COR_DESTAQUE, color: COR_FUNDO_PRINCIPAL }}
         >
           CONTATO

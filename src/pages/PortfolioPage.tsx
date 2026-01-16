@@ -8,18 +8,24 @@ const PRELOADER_VIDEO_URL = 'https://res.cloudinary.com/dekqhffqi/video/upload/v
 const PRELOADER_DURATION = 3700; 
 
 const youtubeVideos = [
+  { id: 'n8lGEpRx8i0', title: 'Edição Dark' },
+  { id: 'er315DQIkzY', title: 'Edição Dinamica' },
+  { id: '6jO4E6Tk4ao', title: 'Edição dinamica Brandi' },
+  { id: 'EypzzANP88I', title: 'Edição Posicionamento de Marca' },
+  { id: 'L4nx0ZHfDSc', title: 'Edição Dinamica USA' },
+  { id: 'yBtZ8EX8QVY', title: 'Edição Cinematografica' },
   { id: 'aDNr6d-Mg60', title: 'LFTN' },
-  { id: 'ok3ByyxLwKY', title: 'JoaoAppolinario' },
+  { id: 'ok3ByyxLwKY', title: 'Joao Appolinario' },
   { id: '0XV1JNCWWzo', title: 'Brandi' },
-  { id: 'vV2TGVvQF8A', title: 'BrunaGriphao' },
-  { id: 'IJ3HKP6b_Mw', title: 'PimentaFightClub' },
+  { id: 'vV2TGVvQF8A', title: 'Bruna Griphao' },
+  { id: 'IJ3HKP6b_Mw', title: 'Pimenta Fight Club' },
   { id: 'NDI2IUog4ck', title: 'Lasaro' },
   { id: 'W-BUfd2dHHw', title: 'brendi' },
-  { id: 'LvPLcz91AbI', title: 'brendiRelProd' },
+  { id: 'LvPLcz91AbI', title: 'brendi Rel Prod' },
   { id: 'ErRE-ejVeG8', title: 'PV' },
-  { id: 'tzElyk6KFWw', title: 'LeoArruda' },
-  { id: 'wkweXbYOal0', title: 'pvGeraldo' },
-  { id: 'a9YjDjuNF_I', title: 'botPreview' },
+  { id: 'tzElyk6KFWw', title: 'Leo Arruda' },
+  { id: 'wkweXbYOal0', title: 'pv Geraldo' },
+  { id: 'a9YjDjuNF_I', title: 'bot Preview' },
   { id: 'Ki9lhhHv5j0', title: 'robozinho' },
   { id: 'uPA5SmTJ00c', title: 'dicas' },
   { id: 'dFEW8kp6Ojs', title: 'Appolinario' },
@@ -77,7 +83,7 @@ export const PortfolioPage: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <BackgroundImage src={BG_IMG} opacity={0.25} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold sm:py-10 uppercase tracking-wider" style={{ color: COR_DESTAQUE }}>
+          <h1 className="text-4xl sm:text-5xl font-bold sm:py-10 uppercase " style={{ color: COR_DESTAQUE }}>
             Portfólio
           </h1>
 

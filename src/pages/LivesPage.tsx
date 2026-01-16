@@ -64,7 +64,7 @@ export const LivesPage: React.FC = () => (
 
     {/* Header */}
     <section className='pt-24 sm:pt-34 pb-16 text-center relative z-10'>
-      <h1 className='text-4xl sm:text-5xl font-bold mb-3 uppercase tracking-wider flex items-center justify-center' style={{ color: COR_DESTAQUE }}>
+      <h1 className='text-4xl sm:text-5xl font-bold mb-3 uppercase  flex items-center justify-center' style={{ color: COR_DESTAQUE }}>
         Nossas Lives
         <span
           className='ml-3 w-3 h-3 sm:w-4 sm:h-4 rounded-full animate-pulse'
