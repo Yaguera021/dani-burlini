@@ -50,11 +50,11 @@ export const HomePage: React.FC = () => {
         </div>
 
         <div className='relative z-10 container mx-auto px-6 text-justify lg:px-8 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-12'>
-          <div className='relative md:w-2/5 w-full max-w-md flex-shrink-0'>
+          <div className='relative center md:w-2/5 w-full max-w-md flex-shrink-0'>
             <div className='absolute inset-0 scale-105 filter blur-lg'>
               <img src={PERFIL_IMG} alt='' className='w-[90%] h-full object-cover rounded-xl' />
             </div>
-            <img src={PERFIL_IMG} alt='Daniel Burlini' loading='lazy' className='relative w-[90%] h-full object-cover rounded-xl shadow-xl' />
+            <img src={PERFIL_IMG} alt='Daniel Burlini' loading='lazy' className='relative w-[90%] h-full ml-4 object-cover rounded-xl shadow-xl' />
           </div>
 
           <div className='max-w-[600px] text-center md:text-left'>
@@ -64,7 +64,7 @@ export const HomePage: React.FC = () => {
             <h3 className='text-3xl md:py-4 sm:text-4xl font-bold' style={{ color: COR_TEXTO_PRINCIPAL }}>
               Olá, tudo bem?
             </h3>
-            <div className='space-y-4 md:py-6 text-base sm:text-xl font-semibold leading-relaxed text-gray-300'>
+            <div className='space-y-4 md:py-6 text-base sm:text-xl font-semibold leading-relaxed tracking-[-0.6px] text-gray-300'>
               <p>Meu nome é Daniel Burlini de Saules. Sou natural do Rio de Janeiro, mas atualmente moro no Cassino, no Rio Grande do Sul.</p>
               <p>
                 Comecei a atuar profissionalmente como editor de vídeos em 2023 e, desde então, já trabalhei em diversos projetos com diferentes clientes. Atualmente, me especializo na edição de
