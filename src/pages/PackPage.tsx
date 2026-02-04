@@ -4,7 +4,7 @@ import { BackgroundImage } from '../components/Background';
 import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRINCIPAL, FONTE_PRINCIPAL } from '../constants';
 
 export const PackPage: React.FC = () => {
-  const checkoutUrl = 'https://pay.kiwify.com.br/o6b3tT3';
+  const checkoutUrl = 'https://pay.kiwify.com.br/lK0nMio';
 
   const handlePurchaseClick = () => {
     window.open(checkoutUrl, '_blank', 'noopener,noreferrer');
