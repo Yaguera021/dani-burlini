@@ -11,7 +11,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { to: '/', label: 'HOME' },
-  { to: '/pack', label: 'ULTIMATE PACK' },
+  { to: '/editor-ultimate', label: 'EDITOR ULTIMATE' },
   { to: '/portfolio', label: 'PORTFÓLIO' },
   { to: '/recursos', label: 'RECURSOS' },
   { to: '/lives', label: 'LIVES' },

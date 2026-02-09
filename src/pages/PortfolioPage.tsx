@@ -52,10 +52,27 @@ export const PortfolioPage: React.FC = () => {
   }, [isPageLoading]);
 
   return (
+    
     <div
       className="min-h-screen relative"
       style={{ backgroundColor: COR_FUNDO_PRINCIPAL, color: COR_TEXTO_PRINCIPAL, fontFamily: FONTE_PRINCIPAL }}
     >
+       <style>{`
+        @keyframes subtlePulse {
+          0%, 100% { opacity: 0.5; transform: scale(0.95); }
+          50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1.1); }
+        }
+
+        .animate-fade-in {
+            animation: fadeInScale 0.3s ease-out forwards;
+        }
+      `}</style>
+
       {/* Overlay de pré-loader */}
       <div
         className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-700 ease-in-out ${
@@ -83,7 +100,11 @@ export const PortfolioPage: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <BackgroundImage src={BG_IMG} opacity={0.25} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold sm:py-10 uppercase " style={{ color: COR_DESTAQUE }}>
+           <h1 className="animate-fade-in max-w-full whitespace-nowrap mt-4 text-[clamp(2rem,8vw,4rem)] sm:text-5xl font-extrabold uppercase tracking-[-0.06em]"
+              style={{
+                color: COR_DESTAQUE,
+                textShadow: `0 0 18px ${COR_DESTAQUE}33`,
+              }}>
             Portfólio
           </h1>
 

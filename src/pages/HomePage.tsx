@@ -7,7 +7,7 @@ import { COR_DESTAQUE, COR_FUNDO_PRINCIPAL, COR_FUNDO_SECUNDARIO, COR_TEXTO_PRIN
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const buttons = [
-    { label: 'Ultimate Pack', to: '/pack' },
+    { label: 'Editor Ultimate', to: '/editor-ultimate' },
     { label: 'Lives', to: '/lives' },
     { label: 'Portfólio', to: '/portfolio' },
     { label: 'Mentoria', to: '/mentorias' },
@@ -28,7 +28,7 @@ export const HomePage: React.FC = () => {
           Seu navegador não suporta o elemento de vídeo.
         </video>
 
-        <div className='relative pb-8 sm:pb-16 md:pb-20 z-10 grid grid-cols-2 gap-x-12 gap-y-4 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-5 lg:grid-cols-4 lg:gap-x-5'>
+        <div className='relative pb-8 sm:pb-16 md:pb-20 z-10 grid grid-cols-2 gap-x-4 gap-y-4 sm:gap-x-6 sm:gap-y-5 lg:grid-cols-4 lg:gap-x-5'>
           {buttons.map(({ label, to }) => (
             <button
               key={label}

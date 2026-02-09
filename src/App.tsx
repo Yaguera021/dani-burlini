@@ -1,15 +1,15 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { COR_FUNDO_PRINCIPAL } from './constants';
-import { HomePage } from './pages/HomePage';
-import { RecursosPage } from './pages/RecursosPage';
-import { LivesPage } from './pages/LivesPage';
-import { PackPage } from './pages/PackPage';
-import { MentoriasPage } from './pages/MentoriasPage';
-import { ContatoPage } from './pages/ContatoPage';
-import { PortfolioPage } from './pages/PortfolioPage';
-import { Header } from './components/Header';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/Footer';
+import { Header } from './components/Header';
 import { WhatsappButton } from './components/WhatsappButton';
+import { COR_FUNDO_PRINCIPAL } from './constants';
+import { ContatoPage } from './pages/ContatoPage';
+import { HomePage } from './pages/HomePage';
+import { LivesPage } from './pages/LivesPage';
+import { MentoriasPage } from './pages/MentoriasPage';
+import { PackPage } from './pages/PackPage';
+import { PortfolioPage } from './pages/PortfolioPage';
+import { RecursosPage } from './pages/RecursosPage';
 
 export default function App() {
   return (
@@ -21,7 +21,7 @@ export default function App() {
           <Route path='/portfolio' element={<PortfolioPage />} />
           <Route path='/recursos' element={<RecursosPage />} />
           <Route path='/lives' element={<LivesPage />} />
-          <Route path='/pack' element={<PackPage />} />
+          <Route path='/editor-ultimate' element={<PackPage />} />
           <Route path='/mentorias' element={<MentoriasPage />} />
           <Route path='/contato' element={<ContatoPage />} />
           <Route path='*' element={<Navigate to='/' replace />} />
