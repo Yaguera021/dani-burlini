@@ -59,7 +59,7 @@ export const PackPage: React.FC = () => {
         precoPor: 'R$ 67,90',
         economia: 'Você vai economizar R$ 30,00',
         cta: 'Legendas Ultimate',
-        checkoutUrl: 'https://pay.kiwify.com.br/6KA7DTZ',
+        checkoutUrl: 'https://pay.kiwify.com.br/T4UbeyX',
       },
     }),
     []
